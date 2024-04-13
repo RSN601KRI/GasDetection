@@ -16,6 +16,9 @@ Data analytics for predictive maintenance and optimization.
 Benefits: enhanced safety, reduced risks of accidents, improved
 efficiency, and cost savings.
 ## Components Used 
+
+![WhatsApp Image 2024-04-13 at 7 53 10 PM](https://github.com/RSN601KRI/GasDetection/assets/106860359/656f3e4e-2b61-4333-bc7c-d546ba8f8a8c)
+
 ESP8266 microcontroller board
 MQ2 sensor
 6.2 LC display with I2C model
@@ -29,7 +32,6 @@ Power Bank
 
 ## Prototype
 ![gasss](https://github.com/RSN601KRI/GasDetection/assets/106860359/c3034890-096f-4f38-93dd-e5a93c70a15f)
-
 
 ## Dataset Structure
 The original dataset files are structured as follows:
@@ -47,6 +49,8 @@ Timestamp,CO_Concentration,CH4_Concentration,Propane_Concentration,Other_Gas_Con
 2020-01-01 00:00:00,5.2,1.3,0.8,0.4,20,50,1013
 2020-01-01 01:00:00,6.5,1.8,0.9,0.5,21,48,1012
 
+![WhatsApp Image 2024-04-13 at 7 53 07 PM](https://github.com/RSN601KRI/GasDetection/assets/106860359/350e2863-4b74-45bf-b9e9-b4892e39e282)
+
 ## Usage
 To use this repository, follow these steps:
 
@@ -56,6 +60,8 @@ Explore the notebooks/ directory to understand the data analysis and model train
 If desired, run the notebooks in a Jupyter environment to reproduce the analysis and train the models.
 The trained models are available in the models/ directory. You can load these models and use them for predicting gas concentrations based on environmental factors.
 Please note that this project assumes basic knowledge of data analysis and machine learning techniques. It is recommended to have a Python environment with necessary dependencies installed.
+
+![WhatsApp Image 2024-04-13 at 7 55 54 PM](https://github.com/RSN601KRI/GasDetection/assets/106860359/68591342-ee72-4cb9-a52d-9ad36c20f884)
 
 ## License
 The code and datasets in this repository are provided under the MIT License. You are free to use, modify, and distribute the code and datasets for personal and commercial purposes.
