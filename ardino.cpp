@@ -1,64 +1,49 @@
-#include <Servo.h> // Include the Servo library
+#include <Servo.h>
 
-Servo servo; // Create a servo object
+Servo servo;
 
-// Define the pins for various components
-const int gasSensorPin = A0;    // Gas sensor analog pin
-const int buzzerPin = 2;        // Buzzer pin
-const int relayPin = 3;         // Relay module control pin
-const int servoPin = 9;         // Servo motor control pin
-const int exhaustFanPin = 10;   // Exhaust fan control pin
-const int ledWarning = 4;       // Warning LED pin
-
-// Define threshold value for gas detection
-const int gasThreshold = 500;   // Adjust this value based on your sensor's sensitivity
+const int gasSensorPin = 6;
+const int buzzerPin = 2;
+const int relayPin = 3;
+const int servoPin = 9;
+const int exhaustFanPin = 10;
+const int ledWarning = 4;
 
 void setup() {
-  // Initialize serial communication for debugging
   Serial.begin(9600);
-
-  // Set pin modes
+  pinMode(gasSensorPin, INPUT);
   pinMode(buzzerPin, OUTPUT);
   pinMode(relayPin, OUTPUT);
   pinMode(servoPin, OUTPUT);
   pinMode(exhaustFanPin, OUTPUT);
   pinMode(ledWarning, OUTPUT);
-  
-  // Attach the servo to its pin
+
   servo.attach(servoPin);
-  
-  // Initially, turn off all appliances including lights
-  digitalWrite(buzzerPin, LOW);
-  digitalWrite(relayPin, LOW);
-  digitalWrite(exhaustFanPin, LOW);
-  digitalWrite(ledWarning, LOW);
+
+  digitalWrite(buzzerPin, LOW); // Turn off buzzer initially
+  digitalWrite(relayPin, LOW);  // Turn off relay initially
+  digitalWrite(exhaustFanPin, HIGH); // Turn on exhaust fan initially (assuming fresh air needed)
+  digitalWrite(ledWarning, LOW); // Turn off warning LED initially
 }
 
 void loop() {
-  // Read the analog value from gas sensor
-  int gasLevel = analogRead(gasSensorPin);
-  Serial.print("Gas Level: ");
-  Serial.println(gasLevel);
+  int gasDetected = digitalRead(gasSensorPin);
+  Serial.print("Gas Detected: ");
+  Serial.println(gasDetected);
 
-  // Check if gas level exceeds threshold
-  if (gasLevel > gasThreshold) {
-    // Gas detected, activate safety measures
-    digitalWrite(buzzerPin, HIGH);      // Sound the buzzer
-    digitalWrite(relayPin, HIGH);       // Turn off all house appliances
-    digitalWrite(exhaustFanPin, HIGH);  // Turn on the exhaust fan
-    digitalWrite(ledWarning, HIGH);     // Turn on warning LED
-    // Adjust the servo position to close the gas regulator
-    servo.write(90);
+  if (gasDetected == HIGH) { // Check if gas is detected (assuming HIGH means gas)
+    digitalWrite(buzzerPin, HIGH);  // Turn on buzzer
+    digitalWrite(relayPin, HIGH);  // Activate relay (likely for alarm or shutoff)
+    digitalWrite(exhaustFanPin, LOW); // Turn off exhaust fan (may not be desired in all cases)
+    digitalWrite(ledWarning, HIGH); // Turn on warning LED
+    servo.write(90);                // Open valve or door (adjust angle if needed)
   } else {
-    // No gas detected, deactivate safety measures
-    digitalWrite(buzzerPin, LOW);   // Turn off the buzzer
-    digitalWrite(relayPin, LOW);    // Turn on all house appliances
-    digitalWrite(exhaustFanPin, LOW); // Turn off the exhaust fan
-    digitalWrite(ledWarning, LOW);    // Turn off warning LED
-    // Adjust the servo position to open the gas regulator
-    servo.write(0);
+    digitalWrite(buzzerPin, LOW);   // Turn off buzzer
+    digitalWrite(relayPin, LOW);    // Deactivate relay
+    digitalWrite(exhaustFanPin, HIGH); // Turn on exhaust fan
+    digitalWrite(ledWarning, LOW);  // Turn off warning LED
+    servo.write(0);                  // Close valve or door
   }
-  
-  // Delay for stability
-  delay(1000); // Adjust the delay time as needed
+
+  delay(1000); // Delay for 1 second
 }
