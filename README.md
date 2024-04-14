@@ -63,8 +63,25 @@ Please note that this project assumes basic knowledge of data analysis and machi
 
 ![WhatsApp Image 2024-04-13 at 7 55 54 PM](https://github.com/RSN601KRI/GasDetection/assets/106860359/68591342-ee72-4cb9-a52d-9ad36c20f884)
 
+## Team Members 
+
+Ranjan Gupta
+Ashish Panday
+Roshni Kumari
+Antima Mishra
+Rashi Bajpai
+
+## Conclusion
+
+This gas leak detector system contains two features, this includes the SMS Gateway Module. Moreover, his gas leak detector system contains two features, this includes the SMS Gateway feature for only sending warning information regarding the gas leak to user, and the Alarm for the warning alert. There is some improvement which can be applied for the future work, such as regarding the SMS Gateway, it need to enhance with feature such as notifying the user whenever the remaining credit balance is insufficient. Another thing which can be enhanced is regarding the sensor, the sensors in this module do not include somewhat notification for notifying the user whenever the sensor not working properly or not connected to the microcontroller for some cases, therefore, it is recommended to add this kind of features in the future work for better refinement. Notifying the user whenever the sensor not working properly or not connected to the microcontroller for some cases, therefore, it is recommended to add this kind of features in the future work for better refinement.
+
+![image](https://github.com/RSN601KRI/GasDetection/assets/106860359/ade5177e-9329-4824-bf84-f62290c2bee0)
+
+
 ## License
 The code and datasets in this repository are provided under the MIT License. You are free to use, modify, and distribute the code and datasets for personal and commercial purposes.
 
 ## Acknowledgments
 If you use this project or find it helpful, it would be appreciated if you could acknowledge it by citing this repository or providing a link to it. Additionally, any contributions or improvements to the project are welcome through pull requests.
+
+Thanks for Reading, mark star if you liked it!🙌
