@@ -67,6 +67,8 @@ Please note that this project assumes basic knowledge of data analysis and machi
 
 ## Team Members 
 
+Check out the Video: https://www.youtube.com/shorts/o6G8AlKrfoM
+
 Ranjan Gupta
 Ashish Panday
 Roshni Kumari
